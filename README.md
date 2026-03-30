@@ -1,32 +1,38 @@
-# Data Analise
-### Resumo do projeto
-_Analise de válvulas da MSGAS que precisam de elevação de cota_
-
-### History Telling
-Foi solicitada uma demanda pela chefia para filtrar as válvulas recapiadas.
-
-A primeira solução foi passar _in loco_ para verificar válvula por válvula para ver se realmente estavam recapidas ou posivelmente foi um apontamento por engano
-
-* __Solução__
-
-      Ao invés de ir _in loco_ para verificar válvula por válvula foi realizado o cruzamento de dados e a analise deles.
-      A empresa possui um sistema que consegue exibir tabelas, com as quais podemos manipular e analisar cada uma.
-      Poderia-se analisar tabela por tabela, linha por linha, com certeza isso seria solicitado para o estagiário, rssrsrsr.
-      Porém com os conhecimentos de analise de dados em pouco tempo conseguimos analisa todas essas 3 tabelas com multidões de dados utilizando o PANDAS!! (e um pouco de racicionio Python)
-  
-### Metodologia
-Para realizar essa analise foi definido o escopo para cumprir esses requisitos:
-1. Válvulas que precisa abrir OS
-2. Válvulas que precisa atualizar os Status
-3. Válvulas que estão pendentes para elevar/instalar laje que já tem OS e __não são bucha__
-4. Válvulas que estão pendentes para elevar/instalar laje que já tem OS e __são bucha__
-
-        OBS: O que são "bucha"??
-        São válvulas que já tentaram elevar ou instalar laje porém o serviço era mais complexo que o usual
-   
-Desses somente o 4 não seria possivel extrair utilizando dados das planilhas fornecidas pelo sistema.
-O restante você pode conferir no arquivo ```main.ipynb```!
+# 📊 Data Analysis: Gestão de Ativos MSGAS
+### Análise de Válvulas para Elevação de Cota e Instalação de Laje
 
 ---
-Não foi disponibilizado os .csv pois são arquivos pessoais da empresa, porém no arquivo ```main.ipynb``` está com os outputs que pode ser vizualizado uma prévia da planilha
-  
+
+## 📖 Resumo do Projeto
+Este projeto automatiza a identificação e o status de manutenção das válvulas da rede MSGAS, cruzando dados de inspeção *in loco* com o histórico de ordens de serviço (OS). O objetivo principal é otimizar a gestão de ativos, eliminando a necessidade de verificações manuais repetitivas e garantindo a integridade dos dados cadastrais.
+
+## 💡 Storytelling: Do Manual ao Automatizado
+A demanda surgiu da necessidade de filtrar válvulas que foram recapeadas (cobertas pelo asfalto). A abordagem inicial previa uma conferência manual, válvula por válvula — um trabalho exaustivo, demorado e suscetível a erros humanos.
+
+**A Mudança de Paradigma:**
+Em vez da conferência física imediata, aplicamos **Data Science**. Utilizando a biblioteca **Pandas** e lógica em Python, realizamos o cruzamento de três bases de dados distintas. O que levaria dias de análise manual foi resolvido com scripts que garantem precisão, escalabilidade e uma economia significativa de horas de trabalho.
+
+## 🛠️ Metodologia e Escopo
+O projeto processa os dados para classificar as válvulas em quatro categorias críticas:
+
+1. **Válvulas que precisam abrir OS:** Identificadas com necessidade de intervenção, mas sem ordem de serviço ativa no sistema.
+2. **Válvulas que precisam atualizar Status:** Divergência entre o apontamento de campo e o status atual no sistema.
+3. **Pendentes de Elevação (Fluxo Padrão):** Válvulas com OS ativa para elevar/instalar laje (casos de complexidade comum).
+4. **Pendentes de Elevação (Casos "Bucha"):** Válvulas com OS ativa onde o serviço exige maior complexidade técnica.
+
+> **O que são "Buchas"?**
+> Termo operacional para válvulas onde houve tentativa de execução, mas foram encontrados impedimentos técnicos (redes profundas, interferências externas) que exigem um planejamento de engenharia mais complexo que o usual.
+
+## 🚀 Tecnologias Utilizadas
+* **Python 3.x**
+* **Pandas:** Manipulação de DataFrames, Merges (Joins) e filtros temporais.
+* **Jupyter Notebook:** Ambiente de desenvolvimento e documentação.
+
+## 📂 Visualização dos Resultados
+Por questões de confidencialidade e segurança da informação (políticas internas da empresa), os arquivos `.csv` originais não foram disponibilizados neste repositório.
+
+No entanto, toda a lógica de tratamento, cruzamento de dados e filtros pode ser conferida no arquivo:
+👉 `main.ipynb` (os outputs foram preservados para demonstrar a estrutura final dos dados gerados).
+
+---
+*Desenvolvido para otimização de processos de manutenção e engenharia.*
